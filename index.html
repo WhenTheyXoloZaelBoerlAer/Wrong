@@ -290,4 +290,31 @@ will save you..</span></div></div></div></div></div>
 </div>
 <div class=postamble><div class=postamble__entry>Exported 507 message(s)</div><div class=postamble__entry>Timezone: UTC+2</div></div>
 
+    <head>
+  <meta charset="UTF-8">
+  <title>Play Music</title>
+  <style>
+    body {
+      margin: 0;
+      background: black;
+    }
+  </style>
+</head>
+<body>
+  <audio id="bgMusic" loop>
+    <source src="Music.mp3" type="audio/mpeg">
+  </audio>
 
+  <script>
+    const music = document.getElementById("bgMusic");
+
+    function startMusic() {
+      music.play().catch(() => {});
+      document.removeEventListener('click', startMusic);
+      document.removeEventListener('touchstart', startMusic);
+    }
+
+    document.addEventListener('click', startMusic);
+    document.addEventListener('touchstart', startMusic);
+  </script>
+</body>
